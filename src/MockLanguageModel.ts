@@ -3,7 +3,7 @@ import {
   BaseLanguageModelCallOptions,
   BaseLanguageModelInput,
 } from '@langchain/core/language_models/base';
-import { BasePromptValueInterface } from '@langchain/core/prompt_values';
+import { BasePromptValue } from '@langchain/core/prompt_values';
 import { Callbacks } from '@langchain/core/callbacks/manager';
 import { LLMResult } from '@langchain/core/outputs';
 import { AIMessage, BaseMessage } from '@langchain/core/messages';
@@ -22,7 +22,7 @@ export class MockLanguageModel<T> extends BaseLanguageModel<T> {
   }
 
   private generatePromptMock?: (
-    promptValues: BasePromptValueInterface[],
+    promptValues: BasePromptValue[],
     options?: BaseLanguageModelCallOptions | string[] | undefined,
     callbacks?: Callbacks | undefined,
   ) => Promise<LLMResult>;
@@ -49,7 +49,7 @@ export class MockLanguageModel<T> extends BaseLanguageModel<T> {
 
   constructor(parameters: {
     generatePromptMock?: (
-      promptValues: BasePromptValueInterface[],
+      promptValues: BasePromptValue[],
       options?: BaseLanguageModelCallOptions | string[] | undefined,
       callbacks?: Callbacks | undefined,
     ) => Promise<LLMResult>;
@@ -80,7 +80,7 @@ export class MockLanguageModel<T> extends BaseLanguageModel<T> {
   }
 
   async generatePrompt(
-    promptValues: BasePromptValueInterface[],
+    promptValues: BasePromptValue[],
     options?: BaseLanguageModelCallOptions | string[] | undefined,
     callbacks?: Callbacks | undefined,
   ): Promise<LLMResult> {
