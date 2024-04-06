@@ -1,11 +1,12 @@
 {
   "name": "langchainjs-mock-language-model",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "test": "yarn build && jest"
+    "test": "yarn build && jest",
+    "prepublish": "npm run build"
   },
   "peerDependencies": {
     "@langchain/core": "^0.0.1",

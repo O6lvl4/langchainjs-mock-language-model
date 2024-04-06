@@ -2,7 +2,7 @@ import { test, expect } from '@jest/globals';
 import { MockLanguageModel } from '../MockLanguageModel';
 
 test('MockLanguageModel', () => {
-  const model = new MockLanguageModel({
+  const model = MockLanguageModel.from({
     generatePromptMock: async () => ({ completion: 'mock', generations: [] }),
     predictMock: async () => 'mock',
     modelTypeMock: () => 'mock',

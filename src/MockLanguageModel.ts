@@ -47,7 +47,7 @@ export class MockLanguageModel<T> extends BaseLanguageModel<T> {
     options?: Partial<BaseLanguageModelCallOptions> | undefined,
   ) => Promise<T>;
 
-  constructor(parameters: {
+  private constructor(parameters: {
     generatePromptMock?: (
       promptValues: BasePromptValue[],
       options?: BaseLanguageModelCallOptions | string[] | undefined,
@@ -77,6 +77,32 @@ export class MockLanguageModel<T> extends BaseLanguageModel<T> {
     this.modelTypeMock = parameters.modelTypeMock;
     this.llmTypeMock = parameters.llmTypeMock;
     this.invokeMock = parameters.invokeMock;
+  }
+
+  public static from<T>(parameters: {
+    generatePromptMock?: (
+      promptValues: BasePromptValue[],
+      options?: BaseLanguageModelCallOptions | string[] | undefined,
+      callbacks?: Callbacks | undefined,
+    ) => Promise<LLMResult>;
+    predictMock?: (
+      text: string,
+      options?: BaseLanguageModelCallOptions | string[] | undefined,
+      callbacks?: Callbacks | undefined,
+    ) => Promise<string>;
+    predictMessagesMock?: (
+      messages: BaseMessage[],
+      options?: BaseLanguageModelCallOptions | string[] | undefined,
+      callbacks?: Callbacks | undefined,
+    ) => Promise<BaseMessage>;
+    modelTypeMock?: () => string;
+    llmTypeMock?: () => string;
+    invokeMock?: (
+      input: BaseLanguageModelInput,
+      options?: Partial<BaseLanguageModelCallOptions> | undefined,
+    ) => Promise<T>;
+  }): MockLanguageModel<T> {
+    return new MockLanguageModel<T>(parameters);
   }
 
   async generatePrompt(
