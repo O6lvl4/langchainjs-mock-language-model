@@ -73,4 +73,3 @@ Contributions to the LangChain.js Mock Language Model package are welcome! If yo
 ## License
 
 This package is open-source and released under the [MIT License](https://opensource.org/licenses/MIT).
-# langchainjs-mock-language-model
