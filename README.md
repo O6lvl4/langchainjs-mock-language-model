@@ -10,8 +10,6 @@ You can install the package using npm:
 npm install langchainjs-mock-language-model
 ```
 
-````
-
 ## Usage
 
 To use the mock language model, you need to import the `MockLanguageModel` class from the package and create an instance of it with the desired mock functions.
@@ -75,4 +73,3 @@ Contributions to the LangChain.js Mock Language Model package are welcome! If yo
 ## License
 
 This package is open-source and released under the [MIT License](https://opensource.org/licenses/MIT).
-````
