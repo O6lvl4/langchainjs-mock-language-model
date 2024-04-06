@@ -10,6 +10,8 @@ You can install the package using npm:
 npm install langchainjs-mock-language-model
 ```
 
+````
+
 ## Usage
 
 To use the mock language model, you need to import the `MockLanguageModel` class from the package and create an instance of it with the desired mock functions.
@@ -17,7 +19,7 @@ To use the mock language model, you need to import the `MockLanguageModel` class
 ```typescript
 import { MockLanguageModel } from 'langchainjs-mock-language-model';
 
-const mockModel = new MockLanguageModel<string>({
+const mockModel = MockLanguageModel.from<string>({
   invokeMock: async (input: BaseLanguageModelInput, options?: Partial<BaseLanguageModelCallOptions> | undefined) => {
     if (input === '1') {
       return 'Hello';
@@ -30,7 +32,7 @@ const mockModel = new MockLanguageModel<string>({
 });
 ```
 
-In the above example, we create a `MockLanguageModel` instance with a custom `invokeMock` function. The `invokeMock` function defines the behavior of the `invoke` method, which takes an input and returns a mocked response based on the input value.
+In the above example, we create a `MockLanguageModel` instance using the `from` factory method with a custom `invokeMock` function. The `invokeMock` function defines the behavior of the `invoke` method, which takes an input and returns a mocked response based on the input value.
 
 You can also provide mock functions for other methods like `generatePrompt`, `predict`, `predictMessages`, `_modelType`, and `_llmType`.
 
@@ -53,7 +55,7 @@ In this example, we call the `invoke` method of the mock language model with dif
 
 ## Configuration
 
-The `MockLanguageModel` class accepts an object with optional mock functions for each method of the `BaseLanguageModel` class. You can provide custom implementations for these methods based on your testing or development requirements.
+The `MockLanguageModel` class provides a static `from` method that accepts an object with optional mock functions for each method of the `BaseLanguageModel` class. You can provide custom implementations for these methods based on your testing or development requirements.
 
 The available mock functions are:
 
@@ -73,3 +75,4 @@ Contributions to the LangChain.js Mock Language Model package are welcome! If yo
 ## License
 
 This package is open-source and released under the [MIT License](https://opensource.org/licenses/MIT).
+````
